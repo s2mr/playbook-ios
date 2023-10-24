@@ -43,6 +43,15 @@ public struct SnapshotDevice {
         self.traitCollection = traitCollection
     }
 
+    /// Adds a user interface style as a trait collection.
+    /// - Parameter style: A user interface style to be used.
+    /// - Returns: The device that added the given user interface style
+    ///            as a trait collection to `self`.
+    @available(iOS 12.0, *)
+    public func style(_ style: UIUserInterfaceStyle) -> SnapshotDevice {
+        addingTraitCollection(UITraitCollection(userInterfaceStyle: style))
+    }
+
     /// Adds an arbitrary trait collection to change the appearance.
     ///
     /// - Parameters
@@ -78,7 +87,10 @@ public struct SnapshotDevice {
             traitCollection: UITraitCollection(traitsFrom: [self.traitCollection, traitCollection])
         )
     }
+}
 
+/// iPhone SE Series
+public extension SnapshotDevice {
     /// `iPhone SE` simulated device.
     ///
     /// - Parameters:
@@ -86,8 +98,9 @@ public struct SnapshotDevice {
     ///   - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPhone SE`.
+    @available(*, deprecated, message: "Alternatively, `.iPhoneSE(.portrait).style(.dark)` as Swift5.4 supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPhoneSE(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPhoneSE(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPhoneSE(orientation).style(style)
     }
 
@@ -97,7 +110,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPhone SE`.
-    public static func iPhoneSE(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPhoneSE(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPhone SE \(orientation.string)",
             size: orientation.use(
@@ -120,7 +133,10 @@ public struct SnapshotDevice {
             )
         )
     }
+}
 
+/// iPhone 8 Series
+public extension SnapshotDevice {
     /// `iPhone 8` simulated device.
     ///
     /// - Parameters:
@@ -128,8 +144,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPhone 8`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone8(.portrait).style(.dark)` as Swift5.4 supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPhone8(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPhone8(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPhone8(orientation).style(style)
     }
 
@@ -139,7 +156,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPhone 8`.
-    public static func iPhone8(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPhone8(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPhone 8 \(orientation.string)",
             size: orientation.use(
@@ -170,8 +187,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPhone 8 Plus`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone8Plus(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPhone8Plus(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPhone8Plus(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPhone8Plus(orientation).style(style)
     }
 
@@ -181,7 +199,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPhone 8 Plus`.
-    public static func iPhone8Plus(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPhone8Plus(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPhone 8 Plus \(orientation.string)",
             size: orientation.use(
@@ -204,7 +222,10 @@ public struct SnapshotDevice {
             )
         )
     }
+}
 
+/// iPhone X Series
+public extension SnapshotDevice {
     /// `iPhone X` simulated device.
     ///
     /// - Parameters:
@@ -212,8 +233,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPhone X`.
+    @available(*, deprecated, message: "Alternatively, `.iPhoneX(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPhoneX(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPhoneX(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPhoneX(orientation).style(style)
     }
 
@@ -223,7 +245,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPhone X`.
-    public static func iPhoneX(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPhoneX(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPhone X \(orientation.string)",
             size: orientation.use(
@@ -254,8 +276,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPhone XS`.
+    @available(*, deprecated, message: "Alternatively, `.iPhoneXS(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPhoneXS(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPhoneXS(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPhoneXS(orientation).style(style)
     }
 
@@ -265,7 +288,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPhone XS`.
-    public static func iPhoneXS(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPhoneXS(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPhone XS \(orientation.string)",
             size: orientation.use(
@@ -296,8 +319,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPhone XR`.
+    @available(*, deprecated, message: "Alternatively, `.iPhoneXR(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPhoneXR(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPhoneXR(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPhoneXR(orientation).style(style)
     }
 
@@ -307,7 +331,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPhone XR`.
-    public static func iPhoneXR(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPhoneXR(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPhone XR \(orientation.string)",
             size: orientation.use(
@@ -338,8 +362,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPhone XS Max`.
+    @available(*, deprecated, message: "Alternatively, `.iPhoneXSMax(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPhoneXSMax(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPhoneXSMax(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPhoneXSMax(orientation).style(style)
     }
 
@@ -349,7 +374,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPhone XS Max`.
-    public static func iPhoneXSMax(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPhoneXSMax(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPhone XS Max \(orientation.string)",
             size: orientation.use(
@@ -372,7 +397,10 @@ public struct SnapshotDevice {
             )
         )
     }
+}
 
+/// iPhone 11 Series
+public extension SnapshotDevice {
     /// `iPhone 11` simulated device.
     ///
     /// - Parameters:
@@ -380,8 +408,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPhone 11`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone11(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPhone11(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPhone11(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPhone11(orientation).style(style)
     }
 
@@ -391,7 +420,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPhone 11`.
-    public static func iPhone11(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPhone11(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPhone 11 \(orientation.string)",
             size: orientation.use(
@@ -422,8 +451,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPhone 11 Pro`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone11Pro(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPhone11Pro(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPhone11Pro(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPhone11Pro(orientation).style(style)
     }
 
@@ -433,7 +463,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPhone 11 Pro`.
-    public static func iPhone11Pro(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPhone11Pro(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPhone 11 Pro \(orientation.string)",
             size: orientation.use(
@@ -451,7 +481,7 @@ public struct SnapshotDevice {
                 horizontalSizeClass: .compact,
                 verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
                 layoutDirection: .leftToRight,
-                forceTouchCapability: .available,
+                forceTouchCapability: .unavailable,
                 preferredContentSizeCategory: .medium
             )
         )
@@ -464,8 +494,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPhone 11 Pro Max`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone11ProMax(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPhone11ProMax(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPhone11ProMax(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPhone11ProMax(orientation).style(style)
     }
 
@@ -475,7 +506,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPhone 11 Pro Max`.
-    public static func iPhone11ProMax(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPhone11ProMax(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPhone 11 Pro Max \(orientation.string)",
             size: orientation.use(
@@ -493,12 +524,279 @@ public struct SnapshotDevice {
                 horizontalSizeClass: orientation.use(portrait: .compact, landscape: .regular),
                 verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
                 layoutDirection: .leftToRight,
-                forceTouchCapability: .available,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+}
+
+/// iPhone 12 Series
+public extension SnapshotDevice {
+    /// `iPhone 12 mini` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///    - style: A theme of UI appearance.
+    ///
+    /// - Returns: A device simulated the `iPhone 12 mini`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone12Mini(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
+    @available(iOS 12.0, *)
+    static func iPhone12Mini(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+        iPhone12Mini(orientation).style(style)
+    }
+
+    /// `iPhone 12 mini` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 12 mini`.
+    static func iPhone12Mini(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 12 mini \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 360, height: 780),
+                landscape: CGSize(width: 780, height: 360)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 50, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 50, bottom: 21, right: 50)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: .compact,
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
                 preferredContentSizeCategory: .medium
             )
         )
     }
 
+    /// `iPhone 12` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///    - style: A theme of UI appearance.
+    ///
+    /// - Returns: A device simulated the `iPhone 12`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone12(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
+    @available(iOS 12.0, *)
+    static func iPhone12(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+        iPhone12(orientation).style(style)
+    }
+
+    /// `iPhone 12` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 12`.
+    static func iPhone12(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 12 \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 390, height: 844),
+                landscape: CGSize(width: 844, height: 390)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: .compact,
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+
+    /// `iPhone 12 Pro` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///    - style: A theme of UI appearance.
+    ///
+    /// - Returns: A device simulated the `iPhone 12 Pro`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone12Pro(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
+    @available(iOS 12.0, *)
+    static func iPhone12Pro(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+        iPhone12Pro(orientation).style(style)
+    }
+
+    /// `iPhone 12 Pro` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 12 Pro`.
+    static func iPhone12Pro(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 12 Pro \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 390, height: 844),
+                landscape: CGSize(width: 844, height: 390)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: .compact,
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+
+    /// `iPhone 12 Pro Max` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///    - style: A theme of UI appearance.
+    ///
+    /// - Returns: A device simulated the `iPhone 12 Pro Max`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone12ProMax(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
+    @available(iOS 12.0, *)
+    static func iPhone12ProMax(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+        iPhone12ProMax(orientation).style(style)
+    }
+
+    /// `iPhone 12 Pro Max` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 12 Pro Max`.
+    static func iPhone12ProMax(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 12 Pro Max \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 428, height: 926),
+                landscape: CGSize(width: 926, height: 428)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 47, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 47, bottom: 21, right: 47)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: orientation.use(portrait: .compact, landscape: .regular),
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+}
+
+/// iPhone 14 Series
+public extension SnapshotDevice {
+    /// `iPhone 14 Pro` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///    - style: A theme of UI appearance.
+    ///
+    /// - Returns: A device simulated the `iPhone 14 Pro`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone14Pro(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
+    @available(iOS 12.0, *)
+    static func iPhone14Pro(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+        iPhone14Pro(orientation).style(style)
+    }
+
+    /// `iPhone 14 Pro` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 14 Pro`.
+    static func iPhone14Pro(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 14 Pro \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 393, height: 852),
+                landscape: CGSize(width: 852, height: 393)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: .compact,
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+
+    /// `iPhone 14 Pro Max` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///    - style: A theme of UI appearance.
+    ///
+    /// - Returns: A device simulated the `iPhone 14 Pro Max`.
+    @available(*, deprecated, message: "Alternatively, `.iPhone14ProMax(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
+    @available(iOS 12.0, *)
+    static func iPhone14ProMax(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+        iPhone14ProMax(orientation).style(style)
+    }
+
+    /// `iPhone 14 Pro Max` simulated device.
+    ///
+    /// - Parameters:
+    ///    - orientation: A simulated orientation.
+    ///
+    /// - Returns: A device simulated the `iPhone 14 Pro Max`.
+    static func iPhone14ProMax(_ orientation: Orientation) -> SnapshotDevice {
+        SnapshotDevice(
+            name: "iPhone 14 Pro Max \(orientation.string)",
+            size: orientation.use(
+                portrait: CGSize(width: 430, height: 932),
+                landscape: CGSize(width: 932, height: 430)
+            ),
+            safeAreaInsets: orientation.use(
+                portrait: UIEdgeInsets(top: 59, left: 0, bottom: 34, right: 0),
+                landscape: UIEdgeInsets(top: 0, left: 59, bottom: 21, right: 59)
+            ),
+            traitCollection: UITraitCollection(
+                userInterfaceIdiom: .phone,
+                displayScale: 3,
+                displayGamut: .P3,
+                horizontalSizeClass: orientation.use(portrait: .compact, landscape: .regular),
+                verticalSizeClass: orientation.use(portrait: .regular, landscape: .compact),
+                layoutDirection: .leftToRight,
+                forceTouchCapability: .unavailable,
+                preferredContentSizeCategory: .medium
+            )
+        )
+    }
+}
+
+/// iPad Mini 5th
+public extension SnapshotDevice {
     /// `iPad Mini 5th generation` simulated device.
     ///
     /// - Parameters:
@@ -506,8 +804,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPad Mini 5th generation`.
+    @available(*, deprecated, message: "Alternatively, `.iPadMini5th(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPadMini5th(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPadMini5th(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPadMini5th(orientation).style(style)
     }
 
@@ -517,7 +816,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPad Mini 5th generation`.
-    public static func iPadMini5th(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPadMini5th(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPad mini 5th \(orientation.string)",
             size: orientation.use(
@@ -537,7 +836,10 @@ public struct SnapshotDevice {
             )
         )
     }
+}
 
+/// iPad Pro
+public extension SnapshotDevice {
     /// `iPad Pro 10.5 inch` simulated device.
     ///
     /// - Parameters:
@@ -545,8 +847,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPad Pro 10.5 inch`.
+    @available(*, deprecated, message: "Alternatively, `.iPadPro10_5(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPadPro10_5(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPadPro10_5(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPadPro10_5(orientation).style(style)
     }
 
@@ -556,7 +859,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPad Pro 10.5 inch`.
-    public static func iPadPro10_5(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPadPro10_5(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPad Pro 10_5 \(orientation.string)",
             size: orientation.use(
@@ -584,8 +887,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPad Pro 11`.
+    @available(*, deprecated, message: "Alternatively, `.iPadPro11(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPadPro11(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPadPro11(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPadPro11(orientation).style(style)
     }
 
@@ -595,7 +899,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPad Pro 11`.
-    public static func iPadPro11(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPadPro11(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPad Pro 11 \(orientation.string)",
             size: orientation.use(
@@ -623,8 +927,9 @@ public struct SnapshotDevice {
     ///    - style: A theme of UI appearance.
     ///
     /// - Returns: A device simulated the `iPad Pro 12.9 inch`.
+    @available(*, deprecated, message: "Alternatively, `.iPadPro12_9(.portrait).style(.dark)` as Swift5.4 now supports `implicit-member-chains`")
     @available(iOS 12.0, *)
-    public static func iPadPro12_9(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
+    static func iPadPro12_9(_ orientation: Orientation, style: UIUserInterfaceStyle) -> SnapshotDevice {
         iPadPro12_9(orientation).style(style)
     }
 
@@ -634,7 +939,7 @@ public struct SnapshotDevice {
     ///    - orientation: A simulated orientation.
     ///
     /// - Returns: A device simulated the `iPad Pro 12.9 inch`.
-    public static func iPadPro12_9(_ orientation: Orientation) -> SnapshotDevice {
+    static func iPadPro12_9(_ orientation: Orientation) -> SnapshotDevice {
         SnapshotDevice(
             name: "iPad Pro 12_9 \(orientation.string)",
             size: orientation.use(
@@ -677,13 +982,6 @@ private extension UITraitCollection {
             UITraitCollection(forceTouchCapability: forceTouchCapability),
             UITraitCollection(preferredContentSizeCategory: preferredContentSizeCategory),
         ])
-    }
-}
-
-private extension SnapshotDevice {
-    @available(iOS 12.0, *)
-    func style(_ style: UIUserInterfaceStyle) -> SnapshotDevice {
-        addingTraitCollection(UITraitCollection(userInterfaceStyle: style))
     }
 }
 
