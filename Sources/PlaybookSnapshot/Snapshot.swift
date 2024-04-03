@@ -103,18 +103,20 @@ public struct Snapshot: TestTool {
                 for scenario in store.scenarios {
                     group.enter()
 
-                    SnapshotSupport.data(
-                        for: scenario,
-                        on: device,
-                        format: format,
-                        scale: scale,
-                        keyWindow: keyWindow,
-                        viewPreprocessor: viewPreprocessor,
-                        handler: { data in
-                            attemptToWrite(data: data, scenario: scenario)
-                            group.leave()
-                        }
-                    )
+                    autoreleasepool {
+                        SnapshotSupport.data(
+                            for: scenario,
+                            on: device,
+                            format: format,
+                            scale: scale,
+                            keyWindow: keyWindow,
+                            viewPreprocessor: viewPreprocessor,
+                            handler: { data in
+                                attemptToWrite(data: data, scenario: scenario)
+                                group.leave()
+                            }
+                        )
+                    }
                 }
             }
         }
