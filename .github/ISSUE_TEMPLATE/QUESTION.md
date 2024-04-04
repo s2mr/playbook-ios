@@ -10,12 +10,9 @@ about: Create a bug question.
 
 ## Expected Behavior
 
-
 ## Current Behavior
 
-
 ## Detailed Description (Include Screenshots)
-
 
 ## Environment
 
@@ -28,5 +25,3 @@ about: Create a bug question.
 - Xcode version:
 
 - Devices/Simulators:
-
-- CocoaPods/Carthage version:

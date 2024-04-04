@@ -18,8 +18,6 @@
 <br>
 <a href="https://github.com/playbook-ui/playbook-ios/releases/latest"><img alt="Release" src="https://img.shields.io/github/v/release/playbook-ui/playbook-ios.svg"/></a>
 <a href="https://swift.org/package-manager"><img alt="Swift Package Manager" src="https://img.shields.io/badge/SwiftPM-compatible-yellowgreen.svg"/></a>
-<a href="https://cocoapods.org/pods/Playbook"><img alt="CocoaPods" src="https://img.shields.io/cocoapods/v/Playbook.svg"/></a>
-<a href="https://github.com/Carthage/Carthage"><img alt="Carthage" src="https://img.shields.io/badge/Carthage-compatible-yellow.svg"/></a>
 
 `Playbook` is a library that provides a sandbox for building UI components without having to worry about application-specific dependencies, strongly inspired by [Storybook](https://storybook.js.org/) for JavaScript in web-frontend development.  
 
@@ -37,7 +35,7 @@ With the `Playbook`, you don't have to struggle through preparing the data and s
 
 ## Usage
 
-- [API Document](https://playbook-ui.github.io/playbook-ios)
+- [API Document](https://playbook-ui.github.io/playbook-ios/documentation/playbooksnapshot)
 - [Example App](https://github.com/playbook-ui/playbook-ios/tree/master/Example)
 
 ---
@@ -45,7 +43,7 @@ With the `Playbook`, you don't have to struggle through preparing the data and s
 ### Playbook
 
 `Playbook` is a framework that provides the basic functionality for managing components. It supports both `SwiftUI` and `UIKit`.  
-Components are uniquely stored as scenarios. A `Scenario` has the way to layout component. Please check the [API Doc](https://playbook-ui.github.io/playbook-ios/ScenarioLayout/) for the variety of layouts.  
+Components are uniquely stored as scenarios. A `Scenario` has the way to layout component. Please check the API Doc for the variety of layouts.  
 
 ```swift
 Playbook.default.addScenarios(of: "Home") {
@@ -181,12 +179,9 @@ The generated snapshot images can be used for more advanced visual regression te
 
 ## Requirements
 
-- Swift 5.1+
-- Xcode 11.0+
-- iOS
-  - `Playbook`: 11.0+
-  - `PlaybookSnapshot`: 11.0+
-  - `PlaybookUI`: 13.0+
+- Swift 5.9+
+- Xcode 15.0+
+- iOS 13.0+
 
 ---
 
@@ -197,31 +192,6 @@ Playbook features are separated into the following frameworks.
 - `Playbook`: Core system of component management.
 - `PlaybookSnapshot`: Generates snapshots of all components.
 - `PlaybookUI`: Products a browsing UI for components managed by Playbook.
-
-### [CocoaPods](https://cocoapods.org)
-
-Add the following to your `Podfile`:
-
-```ruby
-target 'YourPlaybook' do
-  pod 'Playbook'
-  pod 'PlaybookUI'
-
-  target 'YourPlaybookTests' do
-    inherit! :search_paths
-
-    pod 'PlaybookSnapshot'
-  end
-end
-```
-
-### [Carthage](https://github.com/Carthage/Carthage)
-
-Add the following to your `Cartfile`:
-
-```
-github "playbook-ui/playbook-ios"
-```
 
 ### [Swift Package Manager](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 

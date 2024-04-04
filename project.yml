@@ -1,10 +1,15 @@
 name: Playbook
-configFiles:
-  Debug: XCConfigs/project.xcconfig
-  Release: XCConfigs/project.xcconfig
 options:
   bundleIdPrefix: app.playbook-ui
   createIntermediateGroups: true
+  deploymentTarget:
+    iOS: 13.0
+
+settings:
+  GENERATE_INFOPLIST_FILE: YES
+  CODE_SIGNING_REQUIRED: NO
+  CODE_SIGN_IDENTITY: "-"
+  CODE_SIGN_STYLE: Manual
 
 schemes:
   Playbook:
@@ -37,18 +42,12 @@ targets:
     platform: iOS
     sources:
       - Sources/Playbook
-    configFiles:
-      Debug: XCConfigs/playbook.xcconfig
-      Release: XCConfigs/playbook.xcconfig
 
   PlaybookUI:
     type: framework
     platform: iOS
     sources:
       - Sources/PlaybookUI
-    configFiles:
-      Debug: XCConfigs/playbook-ui.xcconfig
-      Release: XCConfigs/playbook-ui.xcconfig
     dependencies:
       - target: Playbook
 
@@ -57,9 +56,6 @@ targets:
     platform: iOS
     sources:
       - Sources/PlaybookSnapshot
-    configFiles:
-      Debug: XCConfigs/playbook-snapshot.xcconfig
-      Release: XCConfigs/playbook-snapshot.xcconfig
     dependencies:
       - target: Playbook
 

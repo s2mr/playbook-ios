@@ -1,49 +1,31 @@
-SWIFT_RUN := swift run -c release
+TOOL := PLAYBOOK_DEVELOPMENT=1 swift run -c release
 GITHUB_RAW_CONTENT_PATH := https://raw.githubusercontent.com/playbook-ui/playbook-ios/master/
 GITHUB_TREE_PATH := https://github.com/playbook-ui/playbook-ios/tree/master/
 LIBS := "Playbook" "PlaybookUI" "PlaybookSnapshot"
 
-.PHONY: all
-all: proj format
-
 .PHONY: proj
 proj:
-	$(SWIFT_RUN) --package-path Tools xcodegen
-	$(SWIFT_RUN) --package-path Tools xcodegen --spec Example/project.yml --project Example
+	$(TOOL) xcodegen
+	$(TOOL) xcodegen --spec Example/project.yml --project Example
 
 .PHONY: format
 format:
-	$(SWIFT_RUN) --package-path Tools swift-format -i -r -m format \
-	  Sources Tests Example/SamplePlaybook Example/SampleSnapshot
+	$(TOOL) swift-format format -i -p -r Sources Tests Example/SamplePlaybook Example/SampleSnapshot
 
 .PHONY: lint
 lint:
-	$(SWIFT_RUN) --package-path Tools swift-format -r -m lint Sources Tests
+	$(TOOL) swift-format lint -s -p -r Sources Tests
 
-.PHONY: pod-lib-lint
-pod-lib-lint:
-	for lib in $(LIBS); do \
-	  bundle exec pod lib lint --quick $$lib.podspec; \
-	done
-
-.PHONY: pod-release
-pod-release:
-	for lib in $(LIBS); do \
-	  bundle exec pod trunk push $$lib.podspec; \
-	done
-
-.PHONY: gem
-gem:
-	bundle config path vendor/bundle
-	bundle install --jobs 4 --retry 3
+.PHONY: docs
+docs:
+	xcodebuild docbuild \
+	  -scheme PlaybookSnapshot \
+	  -destination generic/platform=iOS \
+	  OTHER_DOCC_FLAGS="--transform-for-static-hosting --hosting-base-path playbook-ios --output-path docs"
 
 .PHONY: npm
 npm:
 	npm i
-
-.PHONY: docs
-docs:
-	$(SWIFT_RUN) --package-path Tools/Doc swift-doc generate Sources -n Playbook -f html -o docs --base-url https://playbook-ui.github.io/playbook-ios
 
 .PHONY: fix-readme-links
 fix-readme-links:
